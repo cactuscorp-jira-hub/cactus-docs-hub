@@ -1,0 +1,260 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="color-scheme" content="dark light" />
+    <title>Cactus Docs Hub</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <main id="login-screen" class="login-shell">
+      <section class="login-panel" aria-labelledby="login-title">
+        <div class="brand-mark">
+          <img src="./assets/queue-hub-icon.svg" alt="" />
+        </div>
+        <p class="eyebrow">Cactus Corp</p>
+        <h1 id="login-title">Docs Hub</h1>
+        <p class="login-copy">Central de documentações, manuais e playbooks dos apps internos.</p>
+
+        <form id="login-form" class="login-form">
+          <label>
+            <span>Login</span>
+            <input id="login-user" type="text" autocomplete="username" placeholder="cactuscorp" required />
+          </label>
+          <label>
+            <span>Senha</span>
+            <input id="login-password" type="password" autocomplete="current-password" placeholder="Senha" required />
+          </label>
+          <p id="login-error" class="form-error" role="alert" hidden>Login ou senha inválidos.</p>
+          <button type="submit">Entrar</button>
+        </form>
+      </section>
+    </main>
+
+    <main id="app-screen" class="app-shell" hidden>
+      <aside class="sidebar" aria-label="Apps documentados">
+        <div class="sidebar-brand">
+          <img src="./assets/queue-hub-icon.svg" alt="" />
+          <div>
+            <strong>Cactus Docs</strong>
+            <span>Workspace apps</span>
+          </div>
+        </div>
+
+        <nav class="app-nav" aria-label="Aplicativos">
+          <button class="app-tab selected" type="button" data-app="queue-hub">
+            <span>QH</span>
+            <strong>Queue Hub</strong>
+          </button>
+          <button class="app-tab" type="button" data-app="placeholder" disabled>
+            <span>+</span>
+            <strong>Próximo app</strong>
+          </button>
+        </nav>
+
+        <div class="sidebar-footer">
+          <button id="theme-toggle" class="ghost-button" type="button">Tema light</button>
+          <button id="logout-button" class="ghost-button" type="button">Sair</button>
+        </div>
+      </aside>
+
+      <section class="content-shell">
+        <header class="topbar">
+          <div>
+            <p class="eyebrow">Central de documentação</p>
+            <h1>Queue Hub</h1>
+          </div>
+          <div class="topbar-actions">
+            <label class="search-box">
+              <span>Buscar</span>
+              <input id="doc-search" type="search" placeholder="Busque por JQL, filas, logs..." />
+            </label>
+            <button id="print-button" class="primary-button" type="button">Exportar PDF</button>
+          </div>
+        </header>
+
+        <section class="hero-strip">
+          <article>
+            <span class="metric">Forge app</span>
+            <strong>Jira Service Management</strong>
+            <small>Filas inteligentes por projeto, JQL, colunas customizadas e auditoria admin.</small>
+          </article>
+          <article>
+            <span class="metric">2 idiomas</span>
+            <strong>PT-BR / EN-US</strong>
+            <small>Preferência salva por usuário dentro do Queue Hub.</small>
+          </article>
+          <article>
+            <span class="metric">Admin</span>
+            <strong>Logs e uso</strong>
+            <small>Eventos recentes, erros, uso por pessoa e exportação CSV.</small>
+          </article>
+        </section>
+
+        <section id="docs-print-area" class="docs-layout">
+          <nav class="toc" aria-label="Seções da documentação">
+            <a href="#overview">Visão geral</a>
+            <a href="#current-state">Situação atual</a>
+            <a href="#requirements">Requisitos</a>
+            <a href="#manual">Manual de uso</a>
+            <a href="#admin">Administração</a>
+            <a href="#faq">FAQ</a>
+          </nav>
+
+          <div class="docs-content">
+            <section id="overview" class="doc-card searchable">
+              <p class="section-kicker">Produto</p>
+              <h2>Visão geral</h2>
+              <p>
+                O Queue Hub centraliza filas de trabalho dentro do Jira, permitindo que times criem visões por JQL,
+                organizem filas em grupos prioritários e personalizem a forma de consumo por usuário.
+              </p>
+              <div class="feature-grid">
+                <div>
+                  <strong>Filas por JQL</strong>
+                  <span>Cada fila usa uma consulta JQL configurável e limitada ao projeto atual.</span>
+                </div>
+                <div>
+                  <strong>Colunas configuráveis</strong>
+                  <span>Usuários podem ajustar colunas, densidade, ordenação e preferências de visualização.</span>
+                </div>
+                <div>
+                  <strong>Governança</strong>
+                  <span>Admins controlam acesso, acompanham logs de uso e exportam dados operacionais.</span>
+                </div>
+              </div>
+            </section>
+
+            <section id="current-state" class="doc-card searchable">
+              <p class="section-kicker">Levantamento</p>
+              <h2>Situação atual</h2>
+              <p>
+                Esta seção serve como checklist de descoberta para entender adoção, governança e maturidade do uso de filas
+                em cada projeto Jira.
+              </p>
+              <div class="question-grid">
+                <article>
+                  <strong>Projetos</strong>
+                  <span>Quais projetos estão utilizando o sistema de filas?</span>
+                </article>
+                <article>
+                  <strong>Uso atual</strong>
+                  <span>Como as filas são utilizadas hoje no dia a dia?</span>
+                </article>
+                <article>
+                  <strong>Equipes</strong>
+                  <span>Quais equipes dependem das filas para operar?</span>
+                </article>
+                <article>
+                  <strong>Volume</strong>
+                  <span>Quantas filas existem atualmente por projeto?</span>
+                </article>
+              </div>
+            </section>
+
+            <section id="requirements" class="doc-card searchable">
+              <p class="section-kicker">Escopo atual</p>
+              <h2>Requisitos funcionais</h2>
+              <table>
+                <thead>
+                  <tr>
+                    <th>Requisito</th>
+                    <th>Status no Queue Hub</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>Permitir criação de filas a partir de JQL</td>
+                    <td><span class="status-pill done">Implementado</span></td>
+                  </tr>
+                  <tr>
+                    <td>Configuração de colunas</td>
+                    <td><span class="status-pill done">Implementado</span></td>
+                  </tr>
+                  <tr>
+                    <td>Criação de grupos prioritários</td>
+                    <td><span class="status-pill done">Implementado</span></td>
+                  </tr>
+                  <tr>
+                    <td>Aplicar filtros, ordenar e buscar chamados</td>
+                    <td><span class="status-pill partial">Parcial</span></td>
+                  </tr>
+                  <tr>
+                    <td>Visualizar filas por SLA</td>
+                    <td><span class="status-pill planned">Planejado</span></td>
+                  </tr>
+                </tbody>
+              </table>
+            </section>
+
+            <section id="manual" class="doc-card searchable">
+              <p class="section-kicker">Manual</p>
+              <h2>Como usar o Queue Hub</h2>
+              <ol class="steps-list">
+                <li>
+                  <strong>Abrir o app no projeto Jira</strong>
+                  <span>Acesse a aba Queue Hub dentro do projeto onde as filas serão acompanhadas.</span>
+                </li>
+                <li>
+                  <strong>Escolher uma fila</strong>
+                  <span>Use o menu lateral para navegar entre grupos e filas. O contador mostra a quantidade atual.</span>
+                </li>
+                <li>
+                  <strong>Criar ou editar fila</strong>
+                  <span>Admins podem criar filas manualmente ou por template, definindo nome, JQL e colunas.</span>
+                </li>
+                <li>
+                  <strong>Personalizar visualização</strong>
+                  <span>Defina idioma, densidade, fila favorita, largura de colunas e preferências pessoais.</span>
+                </li>
+                <li>
+                  <strong>Exportar dados</strong>
+                  <span>Use Exportar CSV na fila ou nos logs para análise externa.</span>
+                </li>
+              </ol>
+            </section>
+
+            <section id="admin" class="doc-card searchable">
+              <p class="section-kicker">Admin</p>
+              <h2>Administração e auditoria</h2>
+              <div class="split-list">
+                <div>
+                  <h3>Perfis de acesso</h3>
+                  <p>Permite definir quais roles de projeto podem gerenciar filas, grupos e configurações.</p>
+                </div>
+                <div>
+                  <h3>Logs de uso e erros</h3>
+                  <p>Disponível apenas para org admins, com eventos recentes, erros, uso por pessoa e exportação CSV.</p>
+                </div>
+                <div>
+                  <h3>Templates de filas</h3>
+                  <p>Inclui My work, Unassigned, Waiting customer e Breached SLA para acelerar a configuração.</p>
+                </div>
+              </div>
+            </section>
+
+            <section id="faq" class="doc-card searchable">
+              <p class="section-kicker">FAQ</p>
+              <h2>Perguntas frequentes</h2>
+              <details open>
+                <summary>O login protege as docs?</summary>
+                <p>Em GitHub Pages o login é apenas uma barreira de interface. Para segurança real, publique em repositório privado ou use uma camada com autenticação corporativa.</p>
+              </details>
+              <details>
+                <summary>Como exportar PDF?</summary>
+                <p>Clique em Exportar PDF e use a opção de salvar como PDF na janela de impressão do navegador.</p>
+              </details>
+              <details>
+                <summary>Como adicionar novos apps?</summary>
+                <p>O layout já está preparado para múltiplos apps. Basta adicionar uma nova entrada no menu e novas seções de documentação.</p>
+              </details>
+            </section>
+          </div>
+        </section>
+      </section>
+    </main>
+
+    <script src="./app.js" defer></script>
+  </body>
+</html>
