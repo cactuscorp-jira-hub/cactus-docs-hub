@@ -467,7 +467,8 @@ tr:last-child td {
 .steps-list li {
   display: grid;
   grid-template-columns: 52px minmax(0, 1fr);
-  gap: 14px;
+  column-gap: 14px;
+  row-gap: 4px;
   align-items: start;
   border: 1px solid var(--line);
   border-radius: 16px;
@@ -478,6 +479,7 @@ tr:last-child td {
 
 .steps-list li::before {
   display: grid;
+  grid-row: 1 / span 2;
   width: 40px;
   height: 40px;
   place-items: center;
@@ -486,6 +488,16 @@ tr:last-child td {
   background: var(--accent);
   content: counter(steps);
   font-weight: 900;
+}
+
+.steps-list strong,
+.steps-list span {
+  grid-column: 2;
+  min-width: 0;
+}
+
+.steps-list strong {
+  line-height: 1.25;
 }
 
 summary {
